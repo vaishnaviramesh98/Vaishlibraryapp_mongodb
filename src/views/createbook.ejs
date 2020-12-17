@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title><%=title%></title>
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+    <link href="css/styles.css" rel="stylesheet">
+    <!-- css -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital@1&display=swap" rel="stylesheet">
+	</head>
+	<body>
+<header class="navbar navbar-bright navbar-fixed-top shadow p-3 mb-5 bg-white rounded" role="banner" style="min-height: 100px;">
+  <div class="container" style=" margin-top: 2% ;">
+    <div class="navbar-header" >
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/" class="navbar-brand">Home</a>
+    </div>
+    <nav class="collapse navbar-collapse mynav" role="navigation">
+      <ul class="nav navbar-nav myul" >
+          <% for(i=0;i<nav.length;i++){%>
+        <li>
+          <a href="<%=nav[i].link%>"><%=nav[i].name%></a>
+        </li>
+        <%}%>
+       
+      </ul>
+      <ul class="nav navbar-right navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-search"></i></a>
+          <ul class="dropdown-menu" style="padding:12px;">
+            <form class="form-inline">
+              <button type="submit" class="btn btn-default pull-right"><i class="glyphicon glyphicon-search"></i></button><input type="text" class="form-control pull-left" placeholder="Search">
+            </form>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<!-- <br>
+<br>
+<br> -->
+
+<div  class="heading" >
+  <h1>Add Book</h1>
+  </div>
+
+<div class="container containtop" style=" margin-left:5%;margin-right:5% ; max-width: 70%;">
+    <form action="/books/add" method="POST" onsubmit="return addbook();">
+          <div class="form-way">
+              <label for="Title">Title</label>
+              <input type="text" name="title" id="title" class="form-control" placeholder="Enter the title of the book">
+              <small id="errortitle"></small>
+          </div>
+            <br>
+            <br>
+            <div class="form-way">
+              <label for="Author">Author</label>
+              <input type="text" name="author" id="author" class="form-control" placeholder="Enter the author of the book">
+              <small id="errorauthor"></small>
+          </div>
+          <br>
+          <br>
+          <div class="form-way">
+              <label for="Title">Genre</label>
+              <input type="text" name="genre" id="genre" class="form-control" placeholder="Enter the genre of the book">
+              <small id="errorgenre"></small>
+          </div>
+          <br>
+          <br>
+          <div class="form-way">
+            <label for="Title">Image</label>
+            <input type="file" name="image" id="image" class="form-control" accept="image/jpeg, image/png, image/jpg"  placeholder="Enter the image of the book">
+            <small id="errorimage"></small>
+        </div>
+        <br>
+        <br>
+  
+        <button type="submit" class="btn btn-block btn-shape ">Add</button>
+           <br>
+           <br>
+      </form>
+</div>
+                                                
+                                                                                
+<hr>
+
+<div class="container" id="footer">
+  <div class="row">
+    <div class="col col-sm-12">
+      
+      <h1>Follow Us</h1>
+      <div class="btn-group">
+       <a class="btn btn-twitter btn-lg" href="#"><i class="icon-twitter icon-large"></i> Twitter</a>
+	   <a class="btn btn-facebook btn-lg" href="#"><i class="icon-facebook icon-large"></i> Facebook</a>
+	   <a class="btn btn-google-plus btn-lg" href="#"><i class="icon-google-plus icon-large"></i> Google+</a>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<hr>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <ul class="list-inline">
+          <li><i class="icon-facebook icon-2x"></i></li>
+          <li><i class="icon-twitter icon-2x"></i></li>
+          <li><i class="icon-google-plus icon-2x"></i></li>
+          <li><i class="icon-pinterest icon-2x"></i></li>
+        </ul>
+        
+      </div>
+      <div class="col-sm-6">
+          <p class="pull-right">Built with <i class="icon-heart-empty"></i> at <a href="http://www.bootply.com">Bootply</a></p>      
+      </div>
+    </div>
+  </div>
+</footer>
+	<!-- script references -->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+      let title=document.getElementById("title");
+      let errortitle=document.getElementById("errortitle");
+      let author=document.getElementById("author");
+      let errorauthor=document.getElementById("errorauthor");
+      let genre=document.getElementById("genre");
+      let errorgenre=document.getElementById("errorgenre");
+      let image=document.getElementById("image");
+      let errorimage=document.getElementById("errorimage");
+      let regexp = /^([A-Za-z. ]+)$/;
+      let regex=/^([A-Za-z]+)$/;
+      function addbook(){
+      if(title.value.trim()==""||!(regexp.test(author.value))||!(regex.test(genre.value))||image.value.trim()==""){
+         if(title.value.trim()==""){
+               errortitle.innerHTML="Fields cannot be empty";
+                errortitle.style="color:red";
+         }
+          if(!(regexp.test(author.value))){
+              errorauthor.innerHTML="Enter a valid format name";
+              errorauthor.style="color:red";
+          }
+                
+         if(!(regex.test(genre.value))){
+            errorgenre.innerHTML="Enter a valid genre";
+            errorgenre.style="color:red";
+                  
+         }
+         if(image.value.trim()==""){
+            errorimage.innerHTML="Upload the image of the book";
+            errorimage.style="color:red";
+                  
+         }
+         
+        return false;
+      
+      }
+      else{
+        
+        return true;
+      }
+      }
+
+
+    </script>
+	</body>
+</html>

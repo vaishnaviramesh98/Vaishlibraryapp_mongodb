@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title><%=title%></title>
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+    <link href="css/styles.css" rel="stylesheet">
+    <!-- css -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital@1&display=swap" rel="stylesheet">
+	</head>
+	<body>
+<header class="navbar navbar-bright navbar-fixed-top shadow p-3 mb-5 bg-white rounded" role="banner" style="min-height: 100px;">
+  <div class="container" style=" margin-top: 2% ;">
+    <div class="navbar-header" >
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/" class="navbar-brand">Home</a>
+    </div>
+    <nav class="collapse navbar-collapse mynav" role="navigation">
+      <ul class="nav navbar-nav myul" >
+          <% for(i=0;i<nav.length;i++){%>
+        <li>
+          <a href="<%=nav[i].link%>"><%=nav[i].name%></a>
+        </li>
+        <%}%>
+       
+      </ul>
+      <ul class="nav navbar-right navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-search"></i></a>
+          <ul class="dropdown-menu" style="padding:12px;">
+            <form class="form-inline">
+              <button type="submit" class="btn btn-default pull-right"><i class="glyphicon glyphicon-search"></i></button><input type="text" class="form-control pull-left" placeholder="Search">
+            </form>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<!-- <br>
+<br>
+<br> -->
+
+<div  class="heading" >
+  <h1>Sign in</h1>
+  </div>
+
+<div class="container containtop" style="margin-right:15% ;">
+    <form method="POST" action="/signin/add" onsubmit="return validate();">
+    
+      <br>
+      <br>
+      <div class="form-way">
+        <label for="Firstname">First Name</label>
+        <input type="text" name="firstname" id="firstname" class="form-control" placeholder="Enter first name">
+        <small id="errorfirst"></small>
+    </div>
+    <br>
+    <br>
+    <div class="form-way">
+      <label for="Lastname">Last Name</label>
+      <input type="text" name="lastname" id="lastname" class="form-control" placeholder="Enter Last name">
+      <small id="errorlast"></small>
+   </div>
+   <br>
+    <br>
+
+   <div class="form-way">
+      <label for="email">Email address</label>
+      <input type="email" name="email" id="email" class="form-control" placeholder="Enter email address">
+       <small id="errore"></small>
+    </div>
+    <br>
+    <br>
+    <div class="form-way">
+        <label for="phone" >Mobile number</label>
+        <input type="tel" name="phone" id="phone" class="form-control" placeholder="Enter Mobile number">
+        <small id="errorphone"></small>
+    </div>
+    <br>
+    <br>
+    <div class="form-way">
+      <label for="dob" >DOB</label>
+      <input type="text" name="dob" id="dob" class="form-control" placeholder="DD-MM-YYYY">
+      <small id="errordob"></small>
+     </div>
+     <br>
+     <br>
+    <div class="form-way">
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" onkeyup="return passwordchanged();" class="form-control" placeholder="Password ">
+        <small id="errorpass"></small>
+        <br>
+        <span id="strength"></span>
+        <br>
+        <br>
+    </div>
+    <div class="form-way">
+      <label for="password">Confirm Password</label>
+      <input type="password" name="password1" id="password1" class="form-control" placeholder="Re-enter password">
+      <small id="errorpass1"></small>
+  </div>
+  <br>
+  <br>
+  <button type="submit" class="btn btn-block btn-shape ">Sign Up</button>
+          <br>
+           <br>
+    <div class="form-group form-way">
+      <label class="form-check-label" for="exampleCheck1">Already  have an account?</label>
+      <a href="/login">Login</a>
+    </div>
+  </form>
+ 
+</div>
+                                                
+                                                                                
+<hr>
+
+<div class="container" id="footer">
+  <div class="row">
+    <div class="col col-sm-12">
+      
+      <h1>Follow Us</h1>
+      <div class="btn-group">
+       <a class="btn btn-twitter btn-lg" href="#"><i class="icon-twitter icon-large"></i> Twitter</a>
+	   <a class="btn btn-facebook btn-lg" href="#"><i class="icon-facebook icon-large"></i> Facebook</a>
+	   <a class="btn btn-google-plus btn-lg" href="#"><i class="icon-google-plus icon-large"></i> Google+</a>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<hr>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <ul class="list-inline">
+          <li><i class="icon-facebook icon-2x"></i></li>
+          <li><i class="icon-twitter icon-2x"></i></li>
+          <li><i class="icon-google-plus icon-2x"></i></li>
+          <li><i class="icon-pinterest icon-2x"></i></li>
+        </ul>
+        
+      </div>
+      <div class="col-sm-6">
+          <p class="pull-right">Built with <i class="icon-heart-empty"></i> at <a href="http://www.bootply.com">Bootply</a></p>      
+      </div>
+    </div>
+  </div>
+</footer>
+	<!-- script references -->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+  
+  let firstname=document.getElementById("firstname");
+let errorf=document.getElementById("errorfirst");
+let lastname=document.getElementById("lastname");
+let errorl=document.getElementById("errorlast");
+let email=document.getElementById("email");
+let errore=document.getElementById("errore");
+let phone=document.getElementById("phone");
+let errorphone=document.getElementById("errorphone");
+let dob=document.getElementById("dob");
+let errordob=document.getElementById("errordob");
+
+let password=document.getElementById("password");
+let errorpass=document.getElementById("errorpass");
+let password1=document.getElementById("password1");
+let errorpass1=document.getElementById("errorpass1");
+function validate(){
+ let regexp = /^([A-Za-z0-9\.-]+)@([A-Za-z0-9\-]+).([a-z]{2,3})(.[a-z]{2,3})?$/;
+    let exp1=/^([0-9]{10})$/;
+    let exp=/^[0-9]{3}[-. ][0-9]{3}[-. ][0-9]{4}$/;
+    let pass=/^(?=.{6,10}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$/;
+    let date=/^([0-9]{1,2})-([0-9]{1,2})-([0-9]{4})$/;
+    let regf=/^([A-Za-z]+)$/;
+    let regl=/^([A-Za-z. ]+)$/;
+   
+    if((!regf.test(firstname.value))||(!regl.test(lastname.value))||(!regexp.test(email.value))||(!(exp1.test(phone.value)||exp.test(phone.value)))||(!date.test(dob.value))||password.value.trim()=="" )
+    {
+      if((!regf.test(firstname.value))){
+        errorf.innerHTML="Enter your first name";
+        errorf.style="color:red";
+        // return false;
+      }
+      if((!regl.test(lastname.value))){
+        errorl.innerHTML="Enter your last name";
+        errorl.style="color:red";
+        // return false;
+      }
+      if(!regexp.test(email.value)){
+          errore.innerHTML="Enter a valid email address";
+          errore.style="color:red";
+          // return false;
+        }
+      if(!(exp1.test(phone.value)||exp.test(phone.value)))
+        {
+         errorphone.innerHTML="Enter a valid phone number ";
+         errorphone.style="color:red";
+        // return false;
+        }
+        if(!date.test(dob.value))
+        {
+          errordob.innerHTML="Enter a valid format dob ";
+         errordob.style="color:red";
+        // return false;
+        }
+        if(!date.test(dob.value))
+        {
+          errordob.innerHTML="Enter a valid format dob ";
+         errordob.style="color:red";
+        // return false;
+        }
+        if(password.value.trim()==""){
+              errorpass.innerHTML="Enter a password";
+              errorpass.style="color:red";
+        }
+        return false;
+            
+    }
+    if(!pass.test(password.value))
+    {
+      // errorpass.innerHTML="Enter a password";
+      //  errorpass.style="color:red";
+        return false;
+     
+    }
+    else{
+      
+        if(password.value!=password1.value){
+             errorpass1.innerHTML="Password not matched";
+             errorpass1.style="color:red";
+             return false;
+
+        }
+        return true;
+    }
+ 
+   
+  }
+  function passwordchanged() {
+    var strength = document.getElementById('strength');
+    var strongRegex = /^(?=.{8,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$/;
+    var mediumRegex = new RegExp("^(?=.{7,})(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$", "g");
+    var enoughRegex = /^(?=.{6,}).*$/;
+    var pwd = document.getElementById("password");
+    if (pwd.value.length == 0) {
+        strength.innerHTML = 'Type Password';
+    } else if (false == enoughRegex.test(pwd.value)) {
+        strength.innerHTML = 'More Characters';
+    } else if (strongRegex.test(pwd.value)) {
+        strength.innerHTML = '<span style="color:green">Strong!</span>';
+    } else if (mediumRegex.test(pwd.value)) {
+        strength.innerHTML = '<span style="color:orange">Medium!</span>';
+    } else {
+        strength.innerHTML = '<span style="color:red">Weak!</span>';
+    }
+}
+    
+
+    </script>
+	</body>
+</html>
